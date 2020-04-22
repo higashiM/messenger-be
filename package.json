@@ -1,16 +1,20 @@
 {
   "name": "messenger-be",
   "version": "1.0.0",
-  "description": "",
+  "description": "back end for project messenger",
   "main": "index.js",
-  "dependencies": {
-    "express": "^4.15.2",
-    "socket.io": "^1.7.3"
-  },
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/higashiM/messenger-be.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/higashiM/messenger-be/issues"
+  },
+  "homepage": "https://github.com/higashiM/messenger-be#readme"
 }
