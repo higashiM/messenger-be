@@ -3,7 +3,6 @@ var http = require("http").Server(app);
 var io = require("socket.io")(http);
 var port = process.env.PORT || 3000;
 
-const { schema } = require("../db/graphql/schema/index");
 const cors = require("cors");
 app.use(cors());
 
@@ -11,12 +10,11 @@ app.use(cors());
   res.sendFile(__dirname + "/index.html");
 }); */
 
-io.on("connection", function (socket) {
-  socket.on("join", function () {
-    io.emit("welcome");
-  });
-  socket.on("chat message", function (msg) {
-    io.emit("chat message", msg);
+io.on("connect", function (socket) {
+  console.log("connected");
+  socket.emit("welcome");
+  socket.on("message", function (msg) {
+    io.emit("message", msg);
   });
 });
 
