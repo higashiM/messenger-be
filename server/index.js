@@ -6,15 +6,16 @@ var port = process.env.PORT || 3000;
 const cors = require("cors");
 app.use(cors());
 
-/* app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/index.html");
-}); */
+app.get("/", function (req, res) {
+  res.status(200).send("connected");
+});
 
-io.on("connect", function (socket) {
+io.on("connection", function (socket) {
   console.log("connected");
-  socket.emit("welcome");
-  socket.on("message", function (msg) {
-    io.emit("message", msg);
+  socket.on("join", (data) => socket.send("Hello client from server"));
+  socket.on("join", (data) => console.log(data));
+  socket.on("message", function (data) {
+    console.log(data);
   });
 });
 
